@@ -18,5 +18,5 @@ ci service yaml
 |[Semaphore CI](https://semaphoreci.com)||NO||
 |[Semaphore CI 2.0](https://semaphoreci.com/product)||YES||
 |[Shippable](http://shippable.com)||YES||
-|[Travis CI](https://travis-ci.org/)||YES||
+|[Travis CI](https://travis-ci.com/)||YES||
 |[wercker](http://www.wercker.com/)||YES(Pipeline)||
