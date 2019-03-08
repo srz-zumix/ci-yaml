@@ -16,7 +16,7 @@ ci service yaml
 |[Rocro](https://rocro.com/)||YES||
 |[Scrutinizer](https://scrutinizer-ci.com)||YES||
 |[Semaphore CI](https://semaphoreci.com)||NO||
-|[Semaphore Ci 2.0](https://semaphoreci.com/product)||YES||
+|[Semaphore CI 2.0](https://semaphoreci.com/product)||YES||
 |[Shippable](http://shippable.com)||YES||
 |[Travis CI](https://travis-ci.org/)||YES||
 |[wercker](http://www.wercker.com/)||YES(Pipeline)||
