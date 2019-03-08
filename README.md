@@ -15,7 +15,8 @@ ci service yaml
 |[Codeship](https://codeship.com/)||Pro only||
 |[Rocro](https://rocro.com/)||YES||
 |[Scrutinizer](https://scrutinizer-ci.com)||YES||
-|[Semaphore](https://semaphoreci.com)||YES||
+|[Semaphore CI](https://semaphoreci.com)||NO||
+|[Semaphore Ci 2.0](https://semaphoreci.com/product)||YES||
 |[Shippable](http://shippable.com)||YES||
 |[Travis CI](https://travis-ci.org/)||YES||
 |[wercker](http://www.wercker.com/)||YES(Pipeline)||
