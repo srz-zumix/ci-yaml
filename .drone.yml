@@ -1,11 +1,24 @@
 kind: pipeline
 name: main
 
-clone:
+clone: &clone-default
   depth: 1
 
+steps: &base
+  - name: test
+    image: gcc
+    commands:
+      - echo test
+
+---
+kind: pipeline
+name: copy
+
+clone: *clone-default
+
 steps:
-- name: bench
-  image: gcc
-  commands:
-    - echo test
+  <<: *base
+  - name: hello
+    image: gcc
+    commands:
+      - echo hello
