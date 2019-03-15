@@ -7,16 +7,27 @@ clone: &clone-default
 steps: &base
   - name: test
     image: gcc
-    commands:
+    commands: &test-cmd
       - echo test
-
----
-kind: pipeline
-name: copy
-
-steps:
-  <<: *base
-  - name: hello
+  - name: test2
+    image: gcc
+    commands: *test-cmd
+  - name: test3
     image: gcc
     commands:
+      <<: *test-cmd
       - echo hello
+  
+
+# ---
+# kind: pipeline
+# name: copy
+
+# clone: *clone-default
+
+# steps:
+#   <<: *base
+#   - name: hello
+#     image: gcc
+#     commands:
+#       - echo hello
