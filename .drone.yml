@@ -6,17 +6,16 @@ clone: &clone-default
 
 steps: &base
   - name: test
-    image: gcc
+    image: &g gcc
     commands: &test-cmd
       - echo test
   - name: test2
     image: gcc
     commands: *test-cmd
   - name: test3
-    image: gcc
+    <<: *g
     commands:
-      - echo hello
-      <<: *test-cmd
+      - echo test3
   
 
 # ---
