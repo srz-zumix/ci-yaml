@@ -16,6 +16,7 @@ steps: &base
       branch:
         - master
   - name: test3
+    image: gcc
     commands:
       - echo test3
     when:
