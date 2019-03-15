@@ -14,8 +14,6 @@ steps: &base
 kind: pipeline
 name: copy
 
-clone: *clone-default
-
 steps:
   <<: *base
   - name: hello
