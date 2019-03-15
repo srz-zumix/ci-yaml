@@ -25,15 +25,15 @@ steps: &base
         - push
   
 
-# ---
-# kind: pipeline
-# name: copy
+---
+kind: pipeline
+name: copy
 
 # clone: *clone-default
 
-# steps:
-#   <<: *base
-#   - name: hello
-#     image: gcc
-#     commands:
-#       - echo hello
+steps:
+  - name: hello
+    image: gcc
+    when: *condition
+    commands:
+      - echo hello
