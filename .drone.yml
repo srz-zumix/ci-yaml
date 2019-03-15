@@ -15,8 +15,8 @@ steps: &base
   - name: test3
     image: gcc
     commands:
-      <<: *test-cmd
       - echo hello
+      <<: *test-cmd
   
 
 # ---
