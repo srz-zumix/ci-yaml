@@ -28,5 +28,5 @@ workflows:
   version: 2
   default-test:
     jobs:
-      - build1:
-      - build2:
+      - build1
+      - build2
