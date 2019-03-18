@@ -7,7 +7,8 @@ cirrus_hello_task: &hello
 
 cirrus_test1_task: *hello
 
-cirrus_test2_task: *hello
+cirrus_test2_task:
+  <<: *hello
   env:
     HELLO: Hello
   depends_on:
