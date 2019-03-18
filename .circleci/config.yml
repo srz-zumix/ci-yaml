@@ -1,16 +1,25 @@
 version: 2
 jobs:
-  build:
+  build1:
     docker:
       - image: circleci/buildpack-deps:cosmic-browsers
+    environment: &hello_env
+      HELLO: hello
     steps:
       - checkout
       - run: &hello
           name: Greeting
-          command: echo Hello, world.
+          command: echo ${HELLO}, ${WORLD}.
       - run:
           name: Print the Current Time
           command: date
       - run: *hello
-      - run:
-        <<: *hello
+  build2:
+    docker:
+      - image: circleci/buildpack-deps:cosmic-browsers
+    environment:
+      <<: *hello_env
+      WORLD: world
+    steps:
+      - checkout
+      - run: *hello
