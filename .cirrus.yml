@@ -1,4 +1,14 @@
-cirrus_gcc_test_task:
+cirrus_hello_task: &hello
   container:
     image: gcc:latest
-  test_script: echo hello world.
+  env:
+    HELLO: hello
+  test_script: echo ${HELLO} world.
+
+cirrus_test1_task: *hello
+
+cirrus_test2_task: *hello
+  env:
+    HELLO: Hello
+  depends_on:
+    - cirrus_test
