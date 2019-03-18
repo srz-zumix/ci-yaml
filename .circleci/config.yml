@@ -5,9 +5,13 @@ jobs:
       - image: circleci/buildpack-deps:cosmic-browsers
     steps:
       - checkout
-      - run:
+      - run: &hello
           name: Greeting
           command: echo Hello, world.
       - run:
           name: Print the Current Time
           command: date
+      - run: *hello
+      - run:
+        <<: *hello
+        name: Copy Hello
