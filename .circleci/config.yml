@@ -23,3 +23,10 @@ jobs:
     steps:
       - checkout
       - run: *hello
+
+workflows:
+  version: 2
+  default-test:
+    jobs:
+      - build1:
+      - build2:
