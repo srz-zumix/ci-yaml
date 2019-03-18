@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Print the Current Time
           command: date
-      # - run: *hello
+      - run: *hello
       # - run:
       #   <<: *hello
       #   name: Copy Hello
