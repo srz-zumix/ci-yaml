@@ -3,8 +3,8 @@
 ci service yaml
 --------------------------------------------------
 
-|CI|Status|has YAML config|Alias|Merge|KB|
-|:--|:--|:--|:--|:--|:--|
+|CI|Status|has YAML config|Alias|Merge|Lint|KB|
+|:--|:--|:--|:--|:--|:--|:--|
 |[AppVeyor](https://www.appveyor.com)|[![Build status](https://ci.appveyor.com/api/projects/status/heqex7sf0bvi7pox?svg=true)](https://ci.appveyor.com/project/srz-zumix/ci-yaml)|YES|||
 |[Azure Pipelines](https://azure.microsoft.com/ja-jp/services/devops/pipelines/)|[![Build Status](https://dev.azure.com/srz-zumix/ci-specs/_apis/build/status/ci-yaml-CI?branchName=master)](https://dev.azure.com/srz-zumix/ci-specs/_build/latest?definitionId=8&branchName=master)|YES|||
 |[Bitrise](https://www.bitrise.io)|[![Build Status](https://app.bitrise.io/app/bccdcec7b8beb3cf/status.svg?token=3mtflyXOuH8Ahx3q-OJbNA)](https://app.bitrise.io/app/bccdcec7b8beb3cf)|[Can](https://devcenter.bitrise.io/tips-and-tricks/use-bitrise-yml-from-repository/)|||
@@ -19,7 +19,7 @@ ci service yaml
 |[Semaphore CI](https://semaphoreci.com)||NO|||
 |[Semaphore CI 2.0](https://semaphoreci.com/product)||[YES](https://docs.semaphoreci.com/article/50-pipeline-yaml)|YES|NO||
 |[Shippable](http://shippable.com)|[![Run Status](https://api.shippable.com/projects/5c81c714b2f57f060005ea49/badge?branch=master)]()|YES|||
-|[Travis CI](https://travis-ci.com/)|[![Build Status](https://travis-ci.com/srz-zumix/ci-yaml.svg?branch=master)](https://travis-ci.com/srz-zumix/ci-yaml)|YES|||
+|[Travis CI](https://travis-ci.com/)|[![Build Status](https://travis-ci.com/srz-zumix/ci-yaml.svg?branch=master)](https://travis-ci.com/srz-zumix/ci-yaml)|YES||YES|||[KB](https://github.com/srz-zumix/ci-yaml/labels/Travis%20CI)|
 |[wercker](http://www.wercker.com/)|[![wercker status](https://app.wercker.com/status/d3bc651ac712a5efaac4ff709ae244c6/s/master "wercker status")](https://app.wercker.com/project/byKey/d3bc651ac712a5efaac4ff709ae244c6)|YES(Pipeline)|||
 
 YAML Alias
