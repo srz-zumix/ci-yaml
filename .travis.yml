@@ -31,7 +31,7 @@ matrix:
         apt:
           sources: *apt-common-sources
           packages:
-            <<: *apt-common-packages
+            - *apt-common-packages
             - clang-6.0
 
 notifications:
