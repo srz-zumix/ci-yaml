@@ -6,7 +6,7 @@ agent:
     os_image: ubuntu1804
 blocks:
   - name: "Build"
-    task:
+    task: &build
       env_vars:
         - name: APP_ENV
           value: prod
@@ -18,13 +18,22 @@ blocks:
           - echo $APP_ENV
           - echo "Docker build..."
           - echo "done"
+  - name: "Build2"
+    task:
+      <<: *build
+      env_vars:
+        - name: APP_ENV
+          value: develop
   - name: "Smoke tests"
     task:
-      jobs:
+      jobs: &smoke
       - name: Smoke
         commands:
           - checkout
           - echo "make smoke"
+  - name: "Smoke tests2"
+    task:
+      jobs: *smoke
   - name: "Unit tests"
     task:
       jobs:
