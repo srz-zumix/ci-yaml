@@ -4,7 +4,7 @@ ci service yaml
 --------------------------------------------------
 
 |CI|Status|has YAML config|Alias|Merge|KB|
-|:--|:--|:--|:--|:--|:--|:--|
+|:--|:--|:--|:--|:--|:--|
 |[AppVeyor](https://www.appveyor.com)|[![Build status](https://ci.appveyor.com/api/projects/status/heqex7sf0bvi7pox?svg=true)](https://ci.appveyor.com/project/srz-zumix/ci-yaml)|YES|||
 |[Azure Pipelines](https://azure.microsoft.com/ja-jp/services/devops/pipelines/)|[![Build Status](https://dev.azure.com/srz-zumix/ci-specs/_apis/build/status/ci-yaml-CI?branchName=master)](https://dev.azure.com/srz-zumix/ci-specs/_build/latest?definitionId=8&branchName=master)|YES|||
 |[Bitrise](https://www.bitrise.io)|[![Build Status](https://app.bitrise.io/app/bccdcec7b8beb3cf/status.svg?token=3mtflyXOuH8Ahx3q-OJbNA)](https://app.bitrise.io/app/bccdcec7b8beb3cf)|[Can](https://devcenter.bitrise.io/tips-and-tricks/use-bitrise-yml-from-repository/)|||
