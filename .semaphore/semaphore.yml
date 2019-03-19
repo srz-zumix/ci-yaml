@@ -34,6 +34,10 @@ blocks:
   - name: "Smoke tests2"
     task:
       jobs: *smoke
+  - name: "Smoke tests3"
+    task:
+      jobs:
+        <<: *smoke
   - name: "Unit tests"
     task:
       jobs:
