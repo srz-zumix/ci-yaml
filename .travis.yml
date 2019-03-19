@@ -2,6 +2,10 @@ dist: xenial
 
 language: cpp
 
+compiler:
+  - clang
+  - gcc
+  
 addons:
   apt: &apt-global
     sources: &apt-common-sources
@@ -21,7 +25,7 @@ matrix:
   include:
     - compiler: gcc
       env: TEST2
-    - compiler: gcc
+    - compiler: clang
       env: TEST1
       addons:
         apt:
