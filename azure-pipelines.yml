@@ -2,9 +2,12 @@ jobs:
   - job: &hello hello
     steps:
       - script: echo hello ${WORLD}
-  - job: *hello
-  - job: hello world
-    <<: *hello
-    env:
-      WORLD: world
+#  - job: &hello hello
+#    steps:
+#      - script: echo hello ${WORLD}
+#  - job: *hello
+#  - job: hello world
+#    <<: *hello
+#    env:
+#      WORLD: world
     
