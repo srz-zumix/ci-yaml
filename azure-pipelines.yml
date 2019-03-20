@@ -1,5 +1,5 @@
 jobs:
-  - job: &hello hello
+  - job: hello sample
     steps:
       - script: echo hello ${WORLD}
 #  - job: &hello hello
