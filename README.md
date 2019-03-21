@@ -1,7 +1,6 @@
 # ci-yaml
 
-ci service yaml
---------------------------------------------------
+## ci service yaml
 
 |CI|Status|YAML config|Alias|Merge|Lint|KB|
 |:--|:--|:--|:--|:--|:--|:--|
@@ -22,6 +21,35 @@ ci service yaml
 |[Travis CI](https://travis-ci.com/)|[![Build Status](https://travis-ci.com/srz-zumix/ci-yaml.svg?branch=master)](https://travis-ci.com/srz-zumix/ci-yaml)|YES|YES||[travis lint](https://github.com/travis-ci/travis.rb#lint)|[KB](https://github.com/srz-zumix/ci-yaml/labels/Travis%20CI)|
 |[wercker](http://www.wercker.com/)|[![wercker status](https://app.wercker.com/status/d3bc651ac712a5efaac4ff709ae244c6/s/master "wercker status")](https://app.wercker.com/project/byKey/d3bc651ac712a5efaac4ff709ae244c6)|YES(Pipeline)|||
 
-YAML Alias
---------------------------------------------------
+## YAML Anchor/Alias
 
+### Anchor/Alias 
+
+```yaml
+hoge: &test #anchor
+fuga: *test #alias
+```
+
+### Merge
+
+```yaml
+hoge: &test #anchor
+  name: hoge
+  env:
+    HOGE: 1
+  command:
+    - echo $HOGE
+fuga:
+  <<: *test #merge
+  env:
+    HOGE: 0
+```
+
+### Array Anchor/Alias
+
+```yaml
+- &test #anchor
+  name: hoge
+  command: echo hello
+- *test #alias
+```
