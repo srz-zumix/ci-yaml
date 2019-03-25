@@ -4,7 +4,7 @@
 
 |CI|Status|YAML config|Alias|Merge|Lint|KB|
 |:--|:--|:--|:--|:--|:--|:--|
-|[AppVeyor](https://www.appveyor.com)|[![Build status](https://ci.appveyor.com/api/projects/status/heqex7sf0bvi7pox?svg=true)](https://ci.appveyor.com/project/srz-zumix/ci-yaml)|YES|||[Validate YAML configuration](https://ci.appveyor.com/tools/validate-yaml)||
+|[AppVeyor](https://www.appveyor.com)|[![Build status](https://ci.appveyor.com/api/projects/status/heqex7sf0bvi7pox?svg=true)](https://ci.appveyor.com/project/srz-zumix/ci-yaml)|YES|YES|NO|[Validate YAML configuration](https://ci.appveyor.com/tools/validate-yaml)||
 |[Azure Pipelines](https://azure.microsoft.com/ja-jp/services/devops/pipelines/)|[![Build Status](https://dev.azure.com/srz-zumix/ci-specs/_apis/build/status/ci-yaml-CI?branchName=master)](https://dev.azure.com/srz-zumix/ci-specs/_build/latest?definitionId=8&branchName=master)|YES|NO|NO|[YAML Schema](https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema)|[KB](https://github.com/srz-zumix/ci-yaml/labels/Azure%20Pipelines)|
 |[Bitrise](https://www.bitrise.io)|[![Build Status](https://app.bitrise.io/app/bccdcec7b8beb3cf/status.svg?token=3mtflyXOuH8Ahx3q-OJbNA)](https://app.bitrise.io/app/bccdcec7b8beb3cf)|[Can](https://devcenter.bitrise.io/tips-and-tricks/use-bitrise-yml-from-repository/)|||
 |[Buddy](https://buddy.works)|[![buddy branch](https://app.buddy.works/zumixcpp/ci-yaml/repository/branch/master/badge.svg?token=5e58135ab4831252209e7b1fe75bfe9de669b0dc7e95ed4316eebad2187d59a0 "buddy branch")](https://app.buddy.works/zumixcpp/ci-yaml/repository/branch/master)|YES|NO|NO|[YAML Schema](https://buddy.works/knowledge/yaml/yaml-schema)|[KB](https://github.com/srz-zumix/ci-yaml/labels/Buddy.works)|
