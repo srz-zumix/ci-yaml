@@ -35,5 +35,5 @@ steps:
     <<: *hello
     title: Hello world 4
     environment:
-      - *hello_envs
+      <<: *hello_envs
       - WORLD=world
