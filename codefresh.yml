@@ -30,3 +30,10 @@ steps:
     title: Hello world 3
     environment:
       - WORLD=world
+
+  Hello4:
+    <<: *hello
+    title: Hello world 4
+    environment:
+      - *hello_envs
+      - WORLD=world
