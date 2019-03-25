@@ -4,7 +4,7 @@ version: '1.0'
 steps:
   Hello: &hello
     title: Hello world
-    image_name: gcc
+    image: gcc
     commands:
       - echo "${HELLO} ${WORLD}"
     environment: &hello_envs
@@ -19,7 +19,7 @@ steps:
 
   Hello2:
     title: Hello world 2
-    image_name: gcc
+    image: gcc
     commands:
       - echo "${HELLO} ${HELLO}"
     environment: *hello_envs
