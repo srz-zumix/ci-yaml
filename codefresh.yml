@@ -1,18 +1,15 @@
+# https://codefresh.io/docs/docs/codefresh-yaml/what-is-the-codefresh-yaml/#using-yaml-anchors-to-avoid-repetition
+
 version: '1.0'
 steps:
-  BuildingDockerImage:
-    title: Building Docker Image
-    type: build
-    image_name: srzzumix/ciskip
-    working_directory: ./
-    dockerfile:
-      content: |-
-        FROM ubuntu:latest
-
-        COPY . /usr/src/myapp
-        WORKDIR /usr/src/myapp
-    tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
-    when:
+  Hello: &hello
+    title: Hello world
+    image_name: gcc
+    commands:
+      - echo "${HELLO} ${WORLD}"
+    environment: &hello_envs
+      - HELLO=hello
+    when: &skip_condition
       condition:
         all:
           noSkipCiInCommitMessage: |
@@ -20,21 +17,16 @@ steps:
           noSkipCiInCommitMessage2: |
             includes(lower("${{CF_COMMIT_MESSAGE}}"), "[skip codefresh]") == false
 
+  Hello2:
+    title: Hello world 2
+    image_name: gcc
+    commands:
+      - echo "${HELLO} ${HELLO}"
+    environment: *hello_envs
+    when: *skip_condition
 
-  RunningUnitTests:
-    title: Running Unit Tests
-    image: '${{BuildingDockerImage}}'
-    working_directory: IMAGE_WORK_DIR
-    entry_point:
-      - /bin/sh
-      - /codefresh/volume/cf-generated/unit_test_script
-    create_file:
-      path: /codefresh/volume/cf-generated
-      name: unit_test_script
-      content: >-
-        cat /proc/cpuinfo
-    when:
-      condition:
-        all:
-          noSkipCiInCommitMessage: |
-            includes(lower("${{CF_COMMIT_MESSAGE}}"), "[ci skip]") == false && includes(lower("${{CF_COMMIT_MESSAGE}}"), "[skip ci]") == false
+  Hello3:
+    <<: *hello
+    title: Hello world 3
+    environment:
+      - WORLD=world
