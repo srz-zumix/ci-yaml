@@ -1,6 +1,31 @@
 version: 1.0.{build}
-build_script:
-- cmd: echo OK
+
+environment:
+  matrix:
+    - TEST: a
+    - TEST: b
+    - TEST: c
+
+build_script: &hello
+- cmd: echo %HELLO%
 test: off
 skip_commits:
   message: /\[no appveyor\]/
+
+for:
+- &test_a
+  matrix:
+    only:
+      - TEST: 1
+  environment: &hello_env
+    HELLO: hello
+- &test_b
+  matrix:
+    only:
+      - TEST: 2
+  environment: *hello_env
+- &test_c
+  <<: *test_a
+  matrix:
+    only:
+      - TEST: 3
