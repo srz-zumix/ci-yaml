@@ -13,7 +13,6 @@ matrix:
     - HELLO: "hello"
   allow_failures:
     <<: *hello
-    - WORLD: "WORLD"
  
 build:
   ci:
