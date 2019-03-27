@@ -1,4 +1,16 @@
 language: python
 python: 2.7
-script:
-  - echo OK
+
+env:
+  - &base
+    HELLO: "hello"
+  - *base
+  -
+  <<: *base
+    WORLD: "world"
+  
+build:
+  ci:
+    - echo ${HELLO} ${WORLD}
+
+
