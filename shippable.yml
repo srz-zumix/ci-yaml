@@ -5,8 +5,7 @@ env:
   - &base
     HELLO: "hello"
   - *base
-  -
-  <<: *base
+  - *base
     WORLD: "world"
   
 build:
