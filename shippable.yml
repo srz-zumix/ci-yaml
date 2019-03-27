@@ -5,7 +5,16 @@ env:
   - &base
     HELLO: "hello"
   - *base
+  - HELLO: "HELLO"
+    WORLD: "WORLD"
   
+matrix:
+  include: &hello
+    - HELLO: "hello"
+  allow_failures:
+    <<: *hello
+    - WORLD: "WORLD"
+ 
 build:
   ci:
     - echo ${HELLO} ${WORLD}
