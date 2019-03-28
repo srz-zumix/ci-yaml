@@ -1,6 +1,11 @@
 inspecode:
+  experimental: &default
+    ignore: &default-ignore
+      - *.yml
   markdownlint:
     ignore: &default-ignore
       - *.yml
   misspell:
-    ignore: *default-ignore
+    <<: *default
+    input: 
+      - *.md
