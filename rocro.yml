@@ -3,7 +3,7 @@ inspecode:
     ignore: &default-ignore
       - *.yml
   markdownlint:
-    ignore: &default-ignore
+    ignore:
       - *.yml
   misspell:
     <<: *default
