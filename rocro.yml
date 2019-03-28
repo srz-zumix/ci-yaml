@@ -1,3 +1,6 @@
 inspecode:
-  markdownlint: default
-  misspell: default
+  markdownlint:
+    ignore: &default-ignore
+      - *.yml
+  misspell:
+    ignore: *default-ignore
