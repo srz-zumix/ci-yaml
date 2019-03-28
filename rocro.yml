@@ -1,6 +1,6 @@
 inspecode:
   experimental: &default
-    ignore: &default-ignore
+    ignore:
       - *.yml
   markdownlint:
     ignore:
