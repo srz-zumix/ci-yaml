@@ -3,3 +3,5 @@
   service: gcc
   command: echo hello
 - *step1
+- <<: *step1
+  name: hello
