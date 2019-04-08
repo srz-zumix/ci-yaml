@@ -1,3 +1,5 @@
-- name: tests
+- &step1
+  name: tests
   service: gcc
   command: echo hello
+- *step1
