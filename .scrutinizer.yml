@@ -8,6 +8,7 @@ build:
       tests:
         override:
           - echo ${HELLO}
+    test2: *test_base
 
 filter:
   excluded_paths:
