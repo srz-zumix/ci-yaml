@@ -1,20 +1,18 @@
 build:
-    nodes:
-        hello:
-            environment:
-                python: 3.6.0
-                variables:
-                  HELLO: hello
-            tests:
-                override:
-                    - echo OK
-        
+  environment:
+    python: 3.6.0
+    variables:
+      HELLO: hello
+  tests:
+    override:
+      - echo ${HELLO}
+
 filter:
-    excluded_paths:
-        - '*'
+  excluded_paths:
+    - '*'
 
 checks:
-    python:
-        code_rating: true
-        duplicate_code: true
-        classes_valid_slots: true
+  python:
+    code_rating: true
+    duplicate_code: true
+    classes_valid_slots: true
