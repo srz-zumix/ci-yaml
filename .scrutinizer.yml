@@ -1,6 +1,6 @@
 build:
   nodes:
-    test1:
+    test1: &test_base
       environment:
         python: 3.6.0
         variables:
