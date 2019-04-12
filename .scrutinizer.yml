@@ -1,6 +1,6 @@
 build:
     nodes:
-        hello: &hello
+        hello:
             environment:
                 python: 3.6.0
                 variables:
@@ -8,7 +8,6 @@ build:
             tests:
                 override:
                     - echo OK
-        hello2: *hello
         
 filter:
     excluded_paths:
