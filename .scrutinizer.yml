@@ -1,11 +1,13 @@
 build:
-  environment:
-    python: 3.6.0
-    variables:
-      HELLO: hello
-  tests:
-    override:
-      - echo ${HELLO}
+  nodes:
+    test1:
+      environment:
+        python: 3.6.0
+        variables:
+          HELLO: hello
+      tests:
+        override:
+          - echo ${HELLO}
 
 filter:
   excluded_paths:
