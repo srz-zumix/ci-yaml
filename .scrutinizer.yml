@@ -1,9 +1,15 @@
 build:
-    environment:
-        python: 3.6.0
-    tests:
-        override:
-            - echo OK
+    nodes:
+        hello: &hello
+            environment:
+                python: 3.6.0
+                variables:
+                  HELLO: hello
+            tests:
+                override:
+                    - echo OK
+        hello2: *hello
+        
 filter:
     excluded_paths:
         - '*'
