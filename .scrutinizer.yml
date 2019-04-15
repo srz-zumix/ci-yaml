@@ -11,6 +11,9 @@ build:
     test2: *test_base
     test3:
       <<: *test_base
+      environment:
+        variables:
+          HELLO: Hello
 
 filter:
   excluded_paths:
