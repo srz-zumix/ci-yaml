@@ -12,4 +12,4 @@ cirrus_test2_task:
   env:
     HELLO: Hello
   depends_on:
-    - cirrus_test
+    - cirrus_test1
