@@ -4,6 +4,8 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest]
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - run: |
+        curl https://api.github.com/search/code?q=filename:".travis.yml"+extension:yml+path:/ | jq ".total_count"
