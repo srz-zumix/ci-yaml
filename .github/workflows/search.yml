@@ -30,7 +30,7 @@ jobs:
         FILEPATH_=${SEARCH%%/*}
         FILEPATH=$(basename ${FILEPATH_})
         FILENAME_=${FILEPATH%.yml}
-        FILENAME=$(FILENAME_#.)
+        FILENAME=${FILENAME_#.}
         echo ${FILENAME}, ${TOTAL_COUNT} > ${FILENAME}.txt
         echo "##[set-output name=filename;]$(echo ${FILENAME}.txt)"
     - name: Upload
