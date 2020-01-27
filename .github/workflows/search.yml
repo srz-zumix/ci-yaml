@@ -3,7 +3,7 @@ name: search
 on: [push]
 
 jobs:
-  build:
+  search:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -21,11 +21,34 @@ jobs:
           - sider.yml
           - wercker.yml
     steps:
-    - uses: actions/checkout@v1
     - name: search
       id: search_yaml
       run: |
         TOTAL_COUNT=$(curl -s -u :${{ secrets.github_token }} https://api.github.com/search/code?q=filename:"${{ matrix.filename }}"+extension:yml+path:/ | jq ".total_count")
         echo ${TOTAL_COUNT}
-        echo "##[set-output name=total_count;]$(echo ${TOTAL_COUNT})"
+        FILENAME=$(basename ${{ matrix.filename }})
+        echo ${TOTAL_COUNT} > ${FILENAME}.txt
+        echo "##[set-output name=filename;]$(echo ${FILENAME}.txt)"
+    - name: Upload
+      uses: actions/upload-artifact@v1
+      with:
+        name: search
+        path: ${{ steps.search.outputs.filename }}
+
+  collect:
+    runs-on: ubuntu-latest
+    needs: search
+    steps:
+    - name: Download
+      uses: actions/download-artifact@v1
+      with:
+        name: search
+      run: |
+        ls
+        find ./search -type f -exec cat {} >> result.txt;
+    - name: Upload
+      uses: actions/upload-artifact@v1
+      with:
+        name: result
+        path: result.txt
 
