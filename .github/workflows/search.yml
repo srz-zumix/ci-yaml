@@ -26,5 +26,6 @@ jobs:
       id: search_yaml
       run: |
         TOTAL_COUNT=$(curl -s -u :${{ secrets.github_token }} https://api.github.com/search/code?q=filename:"${{ matrix.filename }}"+extension:yml+path:/ | jq ".total_count")
+        echo ${TOTAL_COUNT}
         echo "##[set-output name=total_count;]$(echo ${TOTAL_COUNT})"
 
