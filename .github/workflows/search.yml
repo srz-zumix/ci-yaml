@@ -50,7 +50,7 @@ jobs:
     - name: collect
       run: |
         ls ./search
-        for f in ./search; do cat $i >> result.csv; done
+        for f in ./search; do cat $f >> result.csv; done
     - name: Upload
       uses: actions/upload-artifact@v1
       with:
