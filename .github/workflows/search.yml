@@ -33,7 +33,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: search
-        path: ${{ steps.search.outputs.filename }}
+        path: ${{ steps.search_yaml.outputs.filename }}
 
   collect:
     runs-on: ubuntu-latest
