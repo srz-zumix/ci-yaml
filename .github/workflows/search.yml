@@ -45,8 +45,8 @@ jobs:
         name: search
     - name: collect
       run: |
-        ls
-        find ./search -type f -exec cat {} >> result.txt ;
+        ls ./search
+        find ./search -type f -exec cat {} >> result.txt \;
     - name: Upload
       uses: actions/upload-artifact@v1
       with:
