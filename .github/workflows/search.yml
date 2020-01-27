@@ -51,6 +51,9 @@ jobs:
       run: |
         ls ./search
         for f in ./search/*; do cat $f >> result.csv; done
+    - name: result
+      run: |
+        cat result.csv
     - name: Upload
       uses: actions/upload-artifact@v1
       with:
