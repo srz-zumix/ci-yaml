@@ -8,7 +8,18 @@ jobs:
     strategy:
       matrix:
         filename:
+          - .cirrus.yml
+          - .circleci/config.yml
+          - .drone.yml
+          - .github/workflows/*.yml
           - .travis.yml
+          - appveyor.yml
+          - bitrise.yml
+          - buddy.yml
+          - codefresh.yml
+          - shippable.yml
+          - sider.yml
+          - wercker.yml
     steps:
     - uses: actions/checkout@v1
     - run: |
