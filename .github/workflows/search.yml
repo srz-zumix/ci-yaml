@@ -55,5 +55,5 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: result
-        path: result.txt
+        path: result.csv
 
