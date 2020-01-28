@@ -39,9 +39,9 @@ jobs:
         FILEPATH=$(basename ${FILEPATH_})
         FILENAME_=${FILEPATH%.yml}
         FILENAME=${FILENAME_#.}
-        echo ${FILENAME}
         echo ${FILENAME}, ${TOTAL_COUNT} > ${FILENAME}.txt
         echo "##[set-output name=filename;]$(echo ${FILENAME}.txt)"
+        echo "::warning:: ${FILENAME}, ${TOTAL_COUNT}"
     - name: Upload
       uses: actions/upload-artifact@v1
       with:
@@ -63,8 +63,6 @@ jobs:
     - name: result
       run: |
         cat result.csv
-        RESULT=$(cat result.csv)
-        echo "::warning:: ${RESULT}"
     - name: Upload
       uses: actions/upload-artifact@v1
       with:
