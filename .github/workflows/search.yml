@@ -65,7 +65,8 @@ jobs:
         RESULT=$(cat result.csv)
         echo "${RESULT}"
         ANNOTATION=$(cat -e result.csv)
-        echo "::warning:: ${ANNOTATION//$/\n}"
+        echo ${ANNOTATION}
+        echo "::warning:: ${ANNOTATION//$/\\n}"
     - name: Upload
       uses: actions/upload-artifact@v1
       with:
