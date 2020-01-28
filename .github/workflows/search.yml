@@ -33,8 +33,8 @@ jobs:
         echo ${TOTAL_COUNT}
         QUERY=${{ matrix.query }}
         JSON="{ ${QUERY//+/,} }"
-        QF=$(echo ${QUERY} | jq ".filename")
-        QP=$(echo ${QUERY} | jq ".path")
+        QF=$(echo ${JSON} | jq ".filename")
+        QP=$(echo ${JSON} | jq ".path")
         SEARCH="${QP}${QF}"
         FILEPATH_=${SEARCH%%/*}
         FILEPATH=$(basename ${FILEPATH_})
