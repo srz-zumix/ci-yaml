@@ -64,7 +64,7 @@ jobs:
       run: |
         RESULT=$(cat result.csv)
         echo "${RESULT}"
-        ANNOTATION=$(prinf %q ${RESULT})
+        ANNOTATION=$(printf %q ${RESULT})
         echo "::warning:: ${ANNOTATION}"
     - name: Upload
       uses: actions/upload-artifact@v1
