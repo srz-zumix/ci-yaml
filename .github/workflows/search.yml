@@ -63,6 +63,8 @@ jobs:
     - name: result
       run: |
         cat result.csv
+        RESULT=$(cat result.csv)
+        echo "::warning:: ${RESULT}"
     - name: Upload
       uses: actions/upload-artifact@v1
       with:
