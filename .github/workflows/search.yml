@@ -29,6 +29,7 @@ jobs:
     - name: search
       id: search_yaml
       run: |
+        echo "${{ matrix.qjson }}"
         QF=$(echo "${{ matrix.qjson }}" | jq ".filename")
         QP=$(echo "${{ matrix.qjson }}" | jq ".path")
         echo $QF
