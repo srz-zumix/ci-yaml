@@ -8,17 +8,22 @@ jobs:
     strategy:
       matrix:
         filename:
-          - .cirrus.yml
-          - .circleci/config.yml
-          - .drone.yml
-          - .github/workflows/*.yml
-          - .travis.yml
           - appveyor.yml
+          - azure-pipelines.yml
           - bitrise.yml
           - buddy.yml
+          - .circleci/config.yml
+          - .cirrus.yml
+          - .drone.yml
+          - .github/workflows/*.yml
+          - codecov.yml
           - codefresh.yml
+          - peak_flow.yml
+          - rocro.yml
+          - .semaphore/semaphore.yml
           - shippable.yml
           - sider.yml
+          - .travis.yml
           - wercker.yml
     steps:
     - name: search
