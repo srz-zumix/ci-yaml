@@ -62,10 +62,9 @@ jobs:
         for f in ./search/*; do cat $f >> result.csv; done
     - name: result
       run: |
-        cat result.csv
         RESULT=$(cat result.csv)
         echo "${RESULT}"
-        echo "::warning:: ${RESULT}"
+        # echo "::warning:: ${RESULT}"
     - name: Upload
       uses: actions/upload-artifact@v1
       with:
