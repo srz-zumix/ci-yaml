@@ -64,6 +64,8 @@ jobs:
       run: |
         RESULT=$(cat result.csv)
         echo "${RESULT}"
+    - name: annotation
+      run: |
         ANNOTATION=$(cat -e result.csv)
         echo ${ANNOTATION}
         echo "::warning:: ${ANNOTATION//$\n/, }"
