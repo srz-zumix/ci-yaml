@@ -21,6 +21,7 @@ jobs:
           - '{ \"filename\":\"codefresh.yml\"       , \"path\":\"/\" }'
           - '{ \"filename\":\"peak_flow.yml\"       , \"path\":\"/\" }'
           - '{ \"filename\":\"rocro.yml\"           , \"path\":\"/\" }'
+          - '{ \"filename\":\".scrutinizer.yml\"    , \"path\":\"/\" }'
           - '{ \"filename\":\"semaphore.yml\"       , \"path\":\"/.semaphore/\" }'
           - '{ \"filename\":\"shippable.yml\"       , \"path\":\"/\" }'
           - '{ \"filename\":\"sider.yml\"           , \"path\":\"/\" }'
