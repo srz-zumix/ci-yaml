@@ -22,10 +22,6 @@ build:
 filter:
   excluded_paths:
     - '*'
-  nodes:
-    analysis:
-      tests:
-        override:
 
 checks:
   python:
