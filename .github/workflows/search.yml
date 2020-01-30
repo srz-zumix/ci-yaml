@@ -1,0 +1,78 @@
+name: search
+
+on: [push]
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        qjson:
+          - '{ \"filename\":\"appveyor.yml\"        , \"path\":\"/\" }'
+          - '{ \"filename\":\"azure-pipelines.yml\" , \"path\":\"/\" }'
+          - '{ \"filename\":\"bitrise.yml\"         , \"path\":\"/\" }'
+          - '{ \"filename\":\"buddy.yml\"           , \"path\":\"/\" }'
+          - '{ \"filename\":\"config.yml\"          , \"path\":\"/.circleci/\" }'
+          - '{ \"filename\":\"circle.yml\"          , \"path\":\"/\" }'
+          - '{ \"filename\":\".cirrus.yml\"         , \"path\":\"/\" }'
+          - '{ \"filename\":\".drone.yml\"          , \"path\":\"/\" }'
+          - '{ \"filename\":\"*.yml\"               , \"path\":\"/.github/workflows/\" }'
+          - '{ \"filename\":\"codecov.yml\"         , \"path\":\"/\" }'
+          - '{ \"filename\":\"codefresh.yml\"       , \"path\":\"/\" }'
+          - '{ \"filename\":\"peak_flow.yml\"       , \"path\":\"/\" }'
+          - '{ \"filename\":\"rocro.yml\"           , \"path\":\"/\" }'
+          - '{ \"filename\":\".scrutinizer.yml\"    , \"path\":\"/\" }'
+          - '{ \"filename\":\"semaphore.yml\"       , \"path\":\"/.semaphore/\" }'
+          - '{ \"filename\":\"shippable.yml\"       , \"path\":\"/\" }'
+          - '{ \"filename\":\"sider.yml\"           , \"path\":\"/\" }'
+          - '{ \"filename\":\".travis.yml\"         , \"path\":\"/\" }'
+          - '{ \"filename\":\"wercker.yml\"         , \"path\":\"/\" }'
+    steps:
+    - name: search
+      id: search_yaml
+      run: |
+        QF=$(echo "${{ matrix.qjson }}" | jq -r ".filename")
+        QP=$(echo "${{ matrix.qjson }}" | jq -r ".path")
+        TOTAL_COUNT=$(curl -s -u :${{ secrets.github_token }} https://api.github.com/search/code?q=filename:${QF}+extension:yml+path:${QP} | jq ".total_count")
+        echo ${TOTAL_COUNT}
+        SEARCH=${QP#/}${QF}
+        FILEPATH_=${SEARCH%%/*}
+        FILEPATH=$(basename ${FILEPATH_})
+        FILENAME_=${FILEPATH%.yml}
+        FILENAME=${FILENAME_#.}
+        echo ${FILENAME}, ${TOTAL_COUNT} > ${FILENAME}.txt
+        echo "##[set-output name=filename;]$(echo ${FILENAME}.txt)"
+        # echo "::warning:: ${FILENAME}, ${TOTAL_COUNT}"
+    - name: Upload
+      uses: actions/upload-artifact@v1
+      with:
+        name: search
+        path: ${{ steps.search_yaml.outputs.filename }}
+
+  collect:
+    runs-on: ubuntu-latest
+    needs: search
+    steps:
+    - name: Download
+      uses: actions/download-artifact@v1
+      with:
+        name: search
+    - name: collect
+      run: |
+        ls ./search
+        for f in ./search/*; do cat $f >> result.csv; done
+    - name: result
+      run: |
+        RESULT=$(cat result.csv)
+        echo "${RESULT}"
+    - name: annotation
+      run: |
+        ANNOTATION=$(cat -e result.csv)
+        echo ${ANNOTATION}
+        echo "::warning:: ${ANNOTATION//$\n/, }"
+    - name: Upload
+      uses: actions/upload-artifact@v1
+      with:
+        name: result
+        path: result.csv
+

@@ -14,7 +14,11 @@ build:
       environment:
         variables:
           HELLO: Hello
-
+    analysis:
+      tests:
+        override:
+            - py-scrutinizer-run
+        
 filter:
   excluded_paths:
     - '*'
