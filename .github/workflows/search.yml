@@ -19,6 +19,7 @@ jobs:
           - '{ \"filename\":\"*.yml\"               , \"path\":\"/.github/workflows/\" }'
           - '{ \"filename\":\"codecov.yml\"         , \"path\":\"/\" }'
           - '{ \"filename\":\"codefresh.yml\"       , \"path\":\"/\" }'
+          - '{ \"filename\":\"codeship-steps.yml\"  , \"path\":\"/\" }'
           - '{ \"filename\":\"peak_flow.yml\"       , \"path\":\"/\" }'
           - '{ \"filename\":\"rocro.yml\"           , \"path\":\"/\" }'
           - '{ \"filename\":\".scrutinizer.yml\"    , \"path\":\"/\" }'

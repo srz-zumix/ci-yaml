@@ -1,9 +1,0 @@
-inspecode:
-  experimental: &default
-    ignore:
-      - "*.yml"
-  markdownlint: *default
-  misspell:
-    <<: *default
-    input: 
-      - "*.md"
