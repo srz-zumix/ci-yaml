@@ -23,7 +23,6 @@ steps: &base
       <<: *condition
       event:
         - push
-  
 
 # ---
 # kind: pipeline
