@@ -14,7 +14,7 @@ skip_commits:
 
 for:
 - &test_a
-  matrix:
+  matrix: &mtrix_a
     only:
       - TEST: 1
   environment: &hello_env
@@ -24,7 +24,8 @@ for:
     only:
       - TEST: 2
   environment: *hello_env
-- <<: *test_a
- matrix:
+# - <<: *test_a
+- matrix:
+   <<: *mtrix_a
    only:
      - TEST: 3
