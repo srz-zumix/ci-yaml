@@ -25,7 +25,10 @@ for:
       - TEST: 2
   environment: *hello_env
 # - <<: *test_a
-- matrix:
-   <<: *mtrix_a
-   only:
-     - TEST: 3
+#   matrix:
+#    only:
+#      - TEST: 3
+# - matrix:
+#    <<: *mtrix_a
+#    only:
+#      - TEST: 3
