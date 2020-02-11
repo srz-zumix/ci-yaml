@@ -14,6 +14,16 @@
     mount_filesystem_path: "/buddy/ci-yaml"
     shell: "BASH"
     trigger_condition: "ALWAYS"
+  - action: "Execute: Always Success Hello"
+    type: "BUILD"
+    working_directory: "/buddy/ci-yaml"
+    docker_image_name: "library/ubuntu"
+    docker_image_tag: "16.04"
+    execute_commands:
+      - "echo Hello"
+    mount_filesystem_path: "/buddy/ci-yaml"
+    shell: "BASH"
+    trigger_condition: "ALWAYS"
   # alias
   - action: "Execute: Always Success 2"
     type: "BUILD"
