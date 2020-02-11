@@ -5,7 +5,7 @@ language: cpp
 compiler:
   - clang
   - gcc
-  
+
 addons:
   apt: &apt-global
     sources: &apt-common-sources
@@ -23,7 +23,8 @@ script:
 
 matrix:
   include:
-    - compiler: gcc
+    - &base
+      compiler: gcc
       env: TEST2
     - compiler: clang
       env: TEST1

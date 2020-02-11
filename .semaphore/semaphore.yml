@@ -18,12 +18,12 @@ blocks:
           - echo $APP_ENV
           - echo "Docker build..."
           - echo "done"
-  # - name: "Build2"
-  #   task:
-  #     <<: *build
-  #     env_vars:
-  #       - name: APP_ENV
-  #         value: develop
+  - name: "Build2"
+    task:
+      <<: *build
+      env_vars:
+        - name: APP_ENV
+          value: develop
   - name: "Smoke tests"
     task:
       jobs: &smoke
