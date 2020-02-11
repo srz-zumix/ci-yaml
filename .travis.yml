@@ -34,8 +34,8 @@ matrix:
           packages:
             - *apt-common-packages
             - clang-6.0
-    - env: TEST3
-      <<: *base
+    - <<: *base
+      env: TEST3
 
 notifications:
   email: false
