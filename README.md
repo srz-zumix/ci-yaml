@@ -18,12 +18,12 @@
 |[Semaphore CI](https://semaphoreci.com)|-|NO|-|-|-|-|
 |[Semaphore CI 2.0](https://semaphoreci.com/product)|[![Semaphore 2.0 Build Status](https://srz-zumix.semaphoreci.com/badges/ci-yaml/branches/master.svg)](https://srz-zumix.semaphoreci.com/projects/ci-yaml)|[YES](https://docs.semaphoreci.com/article/50-pipeline-yaml)|YES|NO|-||
 |[Shippable](http://shippable.com)|[![Run Status](https://api.shippable.com/projects/5c81c714b2f57f060005ea49/badge?branch=master)]()|YES|YES|YES|[FAQ](http://docs.shippable.com/getting-started/support/#how-can-i-validate-my-shippable-yml)||
-|[Travis CI](https://travis-ci.com/)|[![Build Status](https://travis-ci.com/srz-zumix/ci-yaml.svg?branch=master)](https://travis-ci.com/srz-zumix/ci-yaml)|YES|YES|NO|[travis lint](https://github.com/travis-ci/travis.rb#lint)|[KB](https://github.com/srz-zumix/ci-yaml/labels/Travis%20CI)|
+|[Travis CI](https://travis-ci.com/)|[![Build Status](https://travis-ci.com/srz-zumix/ci-yaml.svg?branch=master)](https://travis-ci.com/srz-zumix/ci-yaml)|YES|YES|YES|[travis lint](https://github.com/travis-ci/travis.rb#lint)|[KB](https://github.com/srz-zumix/ci-yaml/labels/Travis%20CI)|
 |[wercker](http://www.wercker.com/)|[![wercker status](https://app.wercker.com/status/d3bc651ac712a5efaac4ff709ae244c6/s/master "wercker status")](https://app.wercker.com/project/byKey/d3bc651ac712a5efaac4ff709ae244c6)|Partial(Pipeline)|YES|YES|[YAML Syntax](http://devcenter-staging.wercker.com/docs/wercker-yml/yaml-syntax.html)||
 
 ## YAML Anchor/Alias
 
-### Anchor/Alias 
+### Anchor/Alias
 
 ```yaml
 hoge: &test #anchor

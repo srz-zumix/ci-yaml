@@ -24,8 +24,7 @@ for:
     only:
       - TEST: 2
   environment: *hello_env
-#- &test_c
-#  <<: *test_a
-#  matrix:
-#    only:
-#      - TEST: 3
+- <<: *test_a
+ matrix:
+   only:
+     - TEST: 3
