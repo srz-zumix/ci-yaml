@@ -26,5 +26,5 @@
     shell: "BASH"
     trigger_condition: "ALWAYS"
   # merge
-  - <<: *action1
-    action: "Execute: Always Success 3"
+  # - <<: *action1
+  #   action: "Execute: Always Success 3"
