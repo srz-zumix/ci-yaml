@@ -3,7 +3,7 @@ cirrus_hello_task: &hello
     image: gcc:latest
   env:
     HELLO: hello
-  test_script: echo ${HELLO} world.
+  test_script: echo ${HELLO} world. && sleep 300
 
 cirrus_test1_task: *hello
 
