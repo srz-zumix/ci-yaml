@@ -1,8 +1,9 @@
 tasks:
   test: # &test
-    image: gcc
-    environment:
-      - HELLO=hello
+    services:
+      - image: gcc
+        environment:
+          - HELLO=hello
     commands:
       - echo ${HELLO}
   # test2: *test
