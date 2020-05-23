@@ -1,0 +1,13 @@
+tasks:
+  test: &test
+    image: gcc
+    environment:
+      - HELLO=hello
+    commands:
+      - echo ${HELLO}
+  test2: *test
+  test3:
+    <<: *test
+    environment:
+      - HELLO=Hello
+
