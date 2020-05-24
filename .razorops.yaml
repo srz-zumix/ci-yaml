@@ -1,9 +1,13 @@
 tasks:
   test: &test
     image: gcc
+    variables:
+      - HELLO=hello
     commands:
-      - echo test
+      - echo ${HELLO}
   test2: *test
   test3:
     <<: *test
     image: gcc:9.3.0
+    variables:
+      - HELLO=Hello
