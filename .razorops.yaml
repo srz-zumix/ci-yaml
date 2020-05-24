@@ -1,5 +1,5 @@
 tasks:
-  test:
+  test: &test
     image: gcc
     commands:
       - echo test
