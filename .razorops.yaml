@@ -4,8 +4,6 @@ tasks:
     commands:
       - echo test
   test2: *test
-  # test3:
-  #   <<: *test
-  #   image: gcc:9.3.0
-
-
+  test3:
+    <<: *test
+    image: gcc:9.3.0
