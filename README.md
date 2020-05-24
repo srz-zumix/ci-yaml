@@ -14,7 +14,7 @@
 |[Codeship](https://codeship.com/)|[![Codeship Status for srz-zumix/ci-yaml](https://app.codeship.com/projects/4dd06940-2384-0137-7251-26e7151593a1/status?branch=master)](https://app.codeship.com/projects/329959)|[Pro only](https://documentation.codeship.com/pro/builds-and-configuration/steps/)|YES|YES|[Jet Validate](https://documentation.codeship.com/pro/jet-cli/validate/)||
 |[Drone](https://cloud.drone.io/)|[![Build Status](https://cloud.drone.io/api/badges/srz-zumix/ci-yaml/status.svg)](https://cloud.drone.io/srz-zumix/ci-yaml)|YES|YES|YES|[drone-yaml lint](github.com/drone/drone-yaml)|[KB](https://github.com/srz-zumix/ci-yaml/issues?q=is%3Aissue+is%3Aopen+label%3ADrone)|
 |[GitHub Actions](https://cloud.drone.io/)|[![GitHub Actions Status](https://github.com/srz-zumix/iutest/workflows/GitHub%20Actions/badge.svg?branch=master)](https://github.com/srz-zumix/iutest/actions)|[YES](https://help.github.com/en/articles/workflow-syntax-for-github-actions)|NO|NO|-||
-|[Razorops](https://razorops.com/)|-|YES|||||
+|[Razorops](https://razorops.com/)|-|YES|YES|YES|||
 |[Scrutinizer](https://scrutinizer-ci.com)|[![Build Status](https://scrutinizer-ci.com/g/srz-zumix/ci-yaml/badges/build.png?b=master)](https://scrutinizer-ci.com/g/srz-zumix/ci-yaml/build-status/master)|[YES](https://scrutinizer-ci.com/docs/configuration)|YES|YES|-||
 |[Semaphore CI](https://semaphoreci.com)|-|NO|-|-|-|-|
 |[Semaphore CI 2.0](https://semaphoreci.com/product)|[![Semaphore 2.0 Build Status](https://srz-zumix.semaphoreci.com/badges/ci-yaml/branches/master.svg)](https://srz-zumix.semaphoreci.com/projects/ci-yaml)|[YES](https://docs.semaphoreci.com/article/50-pipeline-yaml)|YES|NO|-||
