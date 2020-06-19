@@ -40,7 +40,7 @@ jobs:
         FILEPATH_=${SEARCH%%/*}
         FILEPATH=$(basename ${FILEPATH_})
         FILENAME_1=${FILEPATH%.yml}
-        FILENAME_2=${FILEPATH_1%.yaml}
+        FILENAME_2=${FILENAME_1%.yaml}
         FILENAME=${FILENAME_2#.}
         echo ${FILENAME}, ${TOTAL_COUNT} > ${FILENAME}.txt
         echo "##[set-output name=filename;]$(echo ${FILENAME}.txt)"
