@@ -9,5 +9,5 @@ workflows:
     - script@1.1.5:
         title: Do anything with Script step
         inputs:
-          - content: |
+        - content: |-
             echo Hello
