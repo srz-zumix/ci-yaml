@@ -7,10 +7,11 @@ workflows:
     steps:
     - git-clone@4.0.17: {}
     - script@1.1.5: &base
+        title: Do anything with Script step
         inputs:
         - content: |-
             echo Hello
     - script@1.1.5: *base
     - script@1.1.5:
     <<: *base
-#      title: Merged
+        title: Merged
