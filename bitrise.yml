@@ -12,5 +12,5 @@ workflows:
             echo Hello
     - script@1.1.5: *base
     - script@1.1.5:
-      <<: *base
-      title: Merged
+    <<: *base
+#      title: Merged
