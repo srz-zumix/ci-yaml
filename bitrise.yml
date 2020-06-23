@@ -2,15 +2,18 @@
 format_version: '7'
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: other
+
+aliases:
+  - &base
+    title: Do anything with Script step
+    inputs:
+      - content: |-
+          echo Hello
+
 workflows:
   ci: &ci-steps
     steps:
     - git-clone@4.0.17: {}
-    - script@1.1.5: &base
-        title: Do anything with Script step
-        inputs:
-        - content: |-
-            echo Hello
     - script@1.1.5: *base
     - script@1.1.5:
     <<: *base
@@ -20,3 +23,4 @@ workflows:
   ci2:
     <<: *ci-steps
     after_run: []
+
