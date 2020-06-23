@@ -1,5 +1,14 @@
 # https://codefresh.io/docs/docs/codefresh-yaml/what-is-the-codefresh-yaml/#using-yaml-anchors-to-avoid-repetition
 
+aliases:
+  - &skip_condition
+    condition:
+      all:
+        noSkipCiInCommitMessage: |
+          includes(lower("${{CF_COMMIT_MESSAGE}}"), "[ci skip]") == false && includes(lower("${{CF_COMMIT_MESSAGE}}"), "[skip ci]") == false
+        noSkipCiInCommitMessage2: |
+          includes(lower("${{CF_COMMIT_MESSAGE}}"), "[skip codefresh]") == false
+
 version: '1.0'
 steps:
   Hello: &hello
@@ -9,13 +18,7 @@ steps:
       - echo "${HELLO} ${WORLD}"
     environment: &hello_envs
       - HELLO=hello
-    when: &skip_condition
-      condition:
-        all:
-          noSkipCiInCommitMessage: |
-            includes(lower("${{CF_COMMIT_MESSAGE}}"), "[ci skip]") == false && includes(lower("${{CF_COMMIT_MESSAGE}}"), "[skip ci]") == false
-          noSkipCiInCommitMessage2: |
-            includes(lower("${{CF_COMMIT_MESSAGE}}"), "[skip codefresh]") == false
+    when: *skip_condition
 
   Hello2:
     title: Hello world 2
