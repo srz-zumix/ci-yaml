@@ -1,5 +1,9 @@
 version: 1.0.{build}
 
+aliases:
+  - &test1
+    TEST: 1
+    
 environment:
   matrix:
     - TEST: a
@@ -15,8 +19,7 @@ skip_commits:
 for:
 - &test_a
   matrix: &mtrix_a
-    only:
-      - TEST: 1
+    only: *test1
   environment: &hello_env
     HELLO: hello
 - &test_b
