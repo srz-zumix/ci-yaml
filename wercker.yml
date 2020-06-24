@@ -2,13 +2,15 @@ box: python:2.7
 
 aliases:
   - name: &test test
-  - script: &hello
+  - script: &h
     code: echo Hello
   - &env-hello
     HELLO: "hello"
 
 build:
   steps:
+    - script: &hello
+        code: echo Hello
     - script: *hello
     - script:
       <<: *hello
