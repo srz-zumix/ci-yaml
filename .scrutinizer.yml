@@ -1,13 +1,14 @@
-aliases:
-  - python: &py36 3.6.0
-  - &env-hello
-    HELLO: hello
+# aliases:
+#   - python: &py36 3.6.0
+#   - &env-hello
+#     HELLO: hello
 
 build:
   nodes:
     test1: &test_base
       environment:
-        python: *py36
+        # python: *py36
+        python: 3.6.0
         variables: *env-hello
       tests:
         override:
