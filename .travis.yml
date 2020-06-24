@@ -1,5 +1,10 @@
 dist: xenial
 
+aliases:
+  - compiler: &gcc gcc
+  - &env-hello
+    HELLO: "hello"
+
 language: cpp
 
 compiler:
@@ -24,7 +29,7 @@ script:
 matrix:
   include:
     - &base
-      compiler: gcc
+      compiler: *gcc
       env: TEST2
     - compiler: clang
       env: TEST1

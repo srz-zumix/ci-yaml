@@ -9,7 +9,9 @@ build:
       environment:
         # python: *py36
         python: 3.6.0
-        variables: *env-hello
+        # variables: *env-hello
+        variables:
+          HELLO: hello
       tests:
         override:
           - echo ${HELLO}
