@@ -1,14 +1,16 @@
 kind: pipeline
 name: main
 
+aliases:
+  - test_command: &test-cmd echo test command
+
 clone: &clone-default
   depth: 1
 
 steps: &base
   - name: test
     image: gcc
-    commands: &test-cmd
-      - echo test
+    commands: *test-cmd
   - name: test2
     image: gcc
     commands: *test-cmd
