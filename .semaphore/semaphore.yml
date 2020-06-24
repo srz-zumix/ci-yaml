@@ -1,17 +1,17 @@
 version: v1.0
 name: ci-yaml
 
-aliases:
-  - &docker-build
-    name: Docker build
-    commands:
-      - checkout
-      - ls -1
-      - echo $APP_ENV
-      - echo "Docker build..."
-      - echo "done"
-  - &env-hello
-    HELLO: hello
+# aliases:
+#   - &docker-build
+#     name: Docker build
+#     commands:
+#       - checkout
+#       - ls -1
+#       - echo $APP_ENV
+#       - echo "Docker build..."
+#       - echo "done"
+#   - &env-hello
+#     HELLO: hello
 
 agent:
   machine:
@@ -24,8 +24,15 @@ blocks:
         - name: APP_ENV
           value: prod
       jobs:
-      - *docker-build
-  # - name: "Build2"
+      # - *docker-build
+      - name: Docker build
+        commands:
+          - checkout
+          - ls -1
+          - echo $APP_ENV
+          - echo "Docker build..."
+          - echo "done"
+    # - name: "Build2"
   #   task:
   #     <<: *build
   #     env_vars:

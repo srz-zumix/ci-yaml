@@ -1,19 +1,22 @@
 language: python
 python: 2.7
 
-env:
-  - &base
+aliases:
+  - include: &inc
+    - HELLO: "hello"
+  - &env-hello
     HELLO: "hello"
-  - *base
+
+env:
+  - *env-hello
   - HELLO: "HELLO"
     WORLD: "WORLD"
-  
+
 matrix:
-  include: &hello
-    - HELLO: "hello"
+  include: *inc
   allow_failures:
-    <<: *hello
- 
+    <<: *inc
+
 build:
   ci:
     - echo ${HELLO} ${WORLD}
