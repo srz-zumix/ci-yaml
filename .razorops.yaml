@@ -1,12 +1,13 @@
-tasks:
-  test: &test
+aliases:
+  - &test
     image: gcc
     variables:
       - HELLO=hello
     commands:
       - echo ${HELLO}
-  test2: *test
-  test3:
+tasks:
+  test1: *test
+  test2:
     <<: *test
     image: gcc:9.3.0
     variables:
