@@ -4,11 +4,14 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: other
 
 aliases:
+  - title: &default-title Do anything with Script step
   - &base
-    title: Do anything with Script step
+    title: *default-title
     inputs:
       - content: |-
           echo Hello
+  - &env-hello
+    HELLO: hello
 
 workflows:
   ci: &ci-steps

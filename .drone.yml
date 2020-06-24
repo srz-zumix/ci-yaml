@@ -5,6 +5,8 @@ aliases:
   - image: &test-image gcc
   - commands: &test-cmd
     - echo test
+  - &env-hello
+    HELLO: hello
 
 clone: &clone-default
   depth: 1

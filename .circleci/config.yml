@@ -1,22 +1,28 @@
+aliases:
+  - image: &default-image circleci/buildpack-deps:cosmic-browsers
+  - &hello
+    name: Greeting
+    command: echo ${HELLO}, ${WORLD}.
+  - &env-hello
+    HELLO: hello
+
 version: 2
 jobs:
   build1:
     docker:
-      - image: circleci/buildpack-deps:cosmic-browsers
+      - image: *default-image
     environment: &hello_env
       HELLO: hello
     steps:
       - checkout
-      - run: &hello
-          name: Greeting
-          command: echo ${HELLO}, ${WORLD}.
+      - run: *hello
       - run:
           name: Print the Current Time
           command: date
       - run: *hello
   build2:
     docker:
-      - image: circleci/buildpack-deps:cosmic-browsers
+      - image: *default-image
     environment:
       <<: *hello_env
       WORLD: world

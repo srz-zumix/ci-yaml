@@ -1,10 +1,11 @@
 aliases:
+  - image: &gcc gcc:latest
   - &env-hello
     HELLO: hello
 
 cirrus_hello_task: &hello
   container:
-    image: gcc:latest
+    image: *gcc
   env: *env-hello
   test_script: echo ${HELLO} world. && sleep 300
 

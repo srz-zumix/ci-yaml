@@ -1,6 +1,8 @@
 # https://codefresh.io/docs/docs/codefresh-yaml/what-is-the-codefresh-yaml/#using-yaml-anchors-to-avoid-repetition
 
 aliases:
+  - commands: &default-cmd
+    - echo "${HELLO} ${WORLD}"
   - &skip_condition
     condition:
       all:
@@ -8,14 +10,15 @@ aliases:
           includes(lower("${{CF_COMMIT_MESSAGE}}"), "[ci skip]") == false && includes(lower("${{CF_COMMIT_MESSAGE}}"), "[skip ci]") == false
         noSkipCiInCommitMessage2: |
           includes(lower("${{CF_COMMIT_MESSAGE}}"), "[skip codefresh]") == false
+  - &env-hello
+    HELLO: hello
 
 version: '1.0'
 steps:
   Hello: &hello
     title: Hello world
     image: gcc
-    commands:
-      - echo "${HELLO} ${WORLD}"
+    commands: *default-cmd
     environment: &hello_envs
       - HELLO=hello
     when: *skip_condition
@@ -23,8 +26,7 @@ steps:
   Hello2:
     title: Hello world 2
     image: gcc
-    commands:
-      - echo "${HELLO} ${HELLO}"
+    commands: *default-cmd
     environment: *hello_envs
     when: *skip_condition
 
