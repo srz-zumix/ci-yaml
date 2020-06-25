@@ -11,5 +11,5 @@ build:
   steps:
     - script: *hello-cmd
     - script:
-      <<: *hello
+      <<: *hello-cmd
       name: *test
