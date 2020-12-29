@@ -2,6 +2,7 @@
   name: tests
   service: gcc
   command: echo hello
+  encrypted_dockercfg_path: ./.ci/codeship/dockercfg.encrypted
 - *step1
 - <<: *step1
   name: hello
