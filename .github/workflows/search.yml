@@ -34,9 +34,8 @@ jobs:
       run: |
         QF=$(echo "${{ matrix.qjson }}" | jq -r ".filename")
         QP=$(echo "${{ matrix.qjson }}" | jq -r ".path")
-        SEC=$(expr $RANDOM % 100)
-        sleep ${SEC}
-        TOTAL_COUNT=$(curl -s -u :${{ secrets.github_token }} https://api.github.com/search/code?q=filename:${QF}+extension:yml+path:${QP} | jq ".total_count")
+        TOTAL_COUNT=$(curl -s -u :${{ secrets.github_token }} https://api.github.com/search/code?q=filename:${QF}+path:${QP} | jq ".total_count")
+        # TOTAL_COUNT=$(curl -s -u :${{ secrets.github_token }} https://api.github.com/search/code?q=filename:${QF}+extension:yml+path:${QP} | jq ".total_count")
         echo ${TOTAL_COUNT}
         SEARCH=${QP#/}${QF}
         FILEPATH_=${SEARCH%%/*}
