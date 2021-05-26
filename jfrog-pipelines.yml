@@ -1,0 +1,33 @@
+resources:
+  - name: ci_yaml_gitRepo
+    type: GitRepo
+    configuration:
+      gitProvider: GitHub
+      path: srz-zumix/ci-yaml
+      branches:
+        include: master|^feature/.*
+pipelines:
+  - name: ci_yaml_1
+    steps: &default-steps
+      - name: step
+        type: Bash
+        configuration:
+          inputResources:
+            - name: ci_yaml_gitRepo
+        execution:
+          onExecute: &default-execute
+            - pushd ${res_ci_yaml_gitRepo_resourcePath}
+            - echo OK
+            - popd
+  - name: ci_yaml_2
+    steps: *default-steps
+  - name: ci_yaml_3
+    steps:
+      - name: step
+        type: Bash
+        configuration:
+          inputResources:
+            - name: ci_yaml_gitRepo
+        execution:
+          <<: *default-execute
+          - echo Hoge
