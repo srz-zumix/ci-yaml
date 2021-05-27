@@ -21,16 +21,17 @@ pipelines:
             - popd
   - name: ci_yaml_2
     steps: *default-steps
-  - name: ci_yaml_3
-    steps:
-      - name: step
-        type: Bash
-        configuration:
-          inputResources:
-            - name: ci_yaml_gitRepo
-        execution:
-          <<: *default-execute
-          # - echo Hoge
+  # error:YAMLException: cannot merge mappings
+  # - name: ci_yaml_3
+  #   steps:
+  #     - name: step
+  #       type: Bash
+  #       configuration:
+  #         inputResources:
+  #           - name: ci_yaml_gitRepo
+  #       execution:
+  #         <<: *default-execute
+  #         # - echo Hoge
   # error:YAMLException: cannot merge mappings
   # - name: ci_yaml_4
   #   steps:
@@ -40,4 +41,3 @@ pipelines:
   #     #     - name: ci_yaml_gitRepo
   #     #   inputSteps:
   #     #     - name: ci_yaml_1
-
