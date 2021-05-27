@@ -30,12 +30,13 @@ pipelines:
             - name: ci_yaml_gitRepo
         execution:
           <<: *default-execute
+          # - echo Hoge
   - name: ci_yaml_4
     steps:
       <<: *default-steps
-      configuration:
-        inputResources:
-          - name: ci_yaml_gitRepo
-        inputSteps:
-          - name: ci_yaml_1
+      # configuration:
+      #   inputResources:
+      #     - name: ci_yaml_gitRepo
+      #   inputSteps:
+      #     - name: ci_yaml_1
 
