@@ -1,3 +1,9 @@
+aliases:
+  - onExecute: &default-execute
+    - pushd ${res_ci_yaml_gitRepo_resourcePath}
+    - echo OK
+    - popd
+
 resources:
   - name: ci_yaml_gitRepo
     type: GitRepo
@@ -15,10 +21,7 @@ pipelines:
           inputResources:
             - name: ci_yaml_gitRepo
         execution:
-          onExecute: &default-execute
-            - pushd ${res_ci_yaml_gitRepo_resourcePath}
-            - echo OK
-            - popd
+          onExecute: *default-execute
   - name: ci_yaml_2
     steps: *default-steps
   # error:YAMLException: cannot merge mappings
