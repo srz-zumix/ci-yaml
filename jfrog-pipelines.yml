@@ -31,12 +31,13 @@ pipelines:
         execution:
           <<: *default-execute
           # - echo Hoge
-  - name: ci_yaml_4
-    steps:
-      <<: *default-steps
-      # configuration:
-      #   inputResources:
-      #     - name: ci_yaml_gitRepo
-      #   inputSteps:
-      #     - name: ci_yaml_1
+  # error:YAMLException: cannot merge mappings
+  # - name: ci_yaml_4
+  #   steps:
+  #     <<: *default-steps
+  #     # configuration:
+  #     #   inputResources:
+  #     #     - name: ci_yaml_gitRepo
+  #     #   inputSteps:
+  #     #     - name: ci_yaml_1
 
