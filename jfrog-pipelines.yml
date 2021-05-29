@@ -1,14 +1,4 @@
 aliases:
-  - execution: &default-execution
-      onStart:
-        - update_commit_status ci_yaml_gitRepo # Status: "processing"
-      onExecute:
-        - update_commit_status ci_yaml_gitRepo # Status: "processing"
-      onFailure:
-        - update_commit_status ci_yaml_gitRepo # Status: "failure"
-      onSuccess:
-        - update_commit_status ci_yaml_gitRepo # Status: "success"
-
   - onExecute: &default-execute
     - update_commit_status ci_yaml_gitRepo # Status: "processing"
     - pushd ${res_ci_yaml_gitRepo_resourcePath}
@@ -31,8 +21,14 @@ pipelines:
         configuration:
           inputResources:
             - name: ci_yaml_gitRepo
-        execution: *default-execution
+        execution: &default-execution
+          onStart:
+            - update_commit_status ci_yaml_gitRepo # Status: "processing"
           onExecute: *default-execute
+          onFailure:
+            - update_commit_status ci_yaml_gitRepo # Status: "failure"
+          onSuccess:
+            - update_commit_status ci_yaml_gitRepo # Status: "success"
   - name: ci_yaml_2
     steps: *default-steps
   # error:YAMLException: cannot merge mappings
