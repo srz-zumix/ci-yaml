@@ -8,33 +8,40 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        qjson:
-          - '{ \"filename\":\"appveyor.yml\"        , \"path\":\"/\" }'
-          - '{ \"filename\":\"azure-pipelines.yml\" , \"path\":\"/\" }'
-          - '{ \"filename\":\"bitrise.yml\"         , \"path\":\"/\" }'
-          - '{ \"filename\":\"buddy.yml\"           , \"path\":\"/\" }'
-          - '{ \"filename\":\"config.yml\"          , \"path\":\"/.circleci/\" }'
-          - '{ \"filename\":\"circle.yml\"          , \"path\":\"/\" }'
-          - '{ \"filename\":\".cirrus.yml\"         , \"path\":\"/\" }'
-          - '{ \"filename\":\"codecov.yml\"         , \"path\":\"/\" }'
-          - '{ \"filename\":\"codefresh.yml\"       , \"path\":\"/\" }'
-          - '{ \"filename\":\"codeship-steps.yml\"  , \"path\":\"/\" }'
-          - '{ \"filename\":\".drone.yml\"          , \"path\":\"/\" }'
-          - '{ \"filename\":\"*.yml\"               , \"path\":\"/.github/workflows/\" }'
-          - '{ \"filename\":\"*jfrog*.yml\"         , \"path\":\"/\" }'
-          - '{ \"filename\":\"peak_flow.yml\"       , \"path\":\"/\" }'
-          - '{ \"filename\":\".razorops.yaml\"      , \"path\":\"/\" }'
-          - '{ \"filename\":\".scrutinizer.yml\"    , \"path\":\"/\" }'
-          - '{ \"filename\":\"semaphore.yml\"       , \"path\":\"/.semaphore/\" }'
-          - '{ \"filename\":\"sider.yml\"           , \"path\":\"/\" }'
-          - '{ \"filename\":\".travis.yml\"         , \"path\":\"/\" }'
-          - '{ \"filename\":\"wercker.yml\"         , \"path\":\"/\" }'
+        filename: [""]
+        path: ["/"]
+        exclude:
+          filename: ""
+        include:
+          - filename: appveyor.yml
+          - filename: azure-pipelines.yml
+          - filename: bitrise.yml
+          - filename: buddy.yml
+          - filename: config.yml
+            path: /.circleci/
+          - filename: circle.yml
+          - filename: .cirrus.yml
+          - filename: codecov.yml
+          - filename: codefresh.yml
+          - filename: codeship-steps.yml
+          - filename: .drone.yml
+          - filename: "*.yml"
+            path: /.github/workflows/
+          - filename: "*jfrog*.yml"
+          - filename: peak_flow.yml
+          - filename: .razorops.yaml
+          - filename: .scrutinizer.yml
+          - filename: semaphore.yml
+            path: /.semaphore/
+          - filename: sider.yml
+          - filename: .travis.yml
+          - filename: wercker.yml
     steps:
     - name: search
       id: search_yaml
       run: |
-        QF=$(echo "${{ matrix.qjson }}" | jq -r ".filename")
-        QP=$(echo "${{ matrix.qjson }}" | jq -r ".path")
+        QF=${{ matrix.filename }}
+        QP=${{ matrix.path }}
         TOTAL_COUNT=$(curl -s -u :${{ secrets.github_token }} https://api.github.com/search/code?q=filename:${QF}+path:${QP} | jq ".total_count")
         # TOTAL_COUNT=$(curl -s -u :${{ secrets.github_token }} https://api.github.com/search/code?q=filename:${QF}+extension:yml+path:${QP} | jq ".total_count")
         echo ${TOTAL_COUNT}

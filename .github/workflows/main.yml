@@ -16,7 +16,10 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
 
+  # build2: *base
+
   pair-matrix:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         A: [""]
@@ -33,6 +36,7 @@ jobs:
       - run: echo ${{ matrix.A }}-${{ matrix.B }} ${{ matrix.C }}
 
   array-pair-matrix:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         pair:
@@ -40,5 +44,3 @@ jobs:
           - ["Good", "bye"]
     steps:
       - run: echo ${{ matrix.pair[0] }}-${{ matrix.pair[1] }}
-
-  # build2: *base
