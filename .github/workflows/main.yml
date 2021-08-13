@@ -16,4 +16,29 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
 
+  pair-matrix:
+    strategy:
+      matrix:
+        A: [""]
+        B: [""]
+        C: ["!"]
+        exclude:
+          - A: ""
+        include:
+          - A: "Hello"
+            B: "world"
+          - A: "Good"
+            B: "bye"
+    steps:
+      - run: echo ${{ matrix.A }}-${{ matrix.B }} ${{ matrix.C }}
+
+  array-pair-matrix:
+    strategy:
+      matrix:
+        pair:
+          - ["Hello", "world"]
+          - ["Good", "bye"]
+    steps:
+      - run: echo ${{ matrix.pair[0] }}-${{ matrix.pair[1] }}
+
   # build2: *base
