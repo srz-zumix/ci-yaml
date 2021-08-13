@@ -8,34 +8,35 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        filename: [""]
+        filename:
+          - appveyor.yml
+          - azure-pipelines.yml
+          - bitrise.yml
+          - buddy.yml
+          # - config.yml
+          - circle.yml
+          - .cirrus.yml
+          - codecov.yml
+          - codefresh.yml
+          - codeship-steps.yml
+          - .drone.yml
+          # - "*.yml"
+          - "*jfrog*.yml"
+          - peak_flow.yml
+          - .razorops.yaml
+          - .scrutinizer.yml
+          # - semaphore.yml
+          - sider.yml
+          - .travis.yml
+          - wercker.yml
         path: ["/"]
-        exclude:
-          - filename: ""
         include:
-          - filename: appveyor.yml
-          - filename: azure-pipelines.yml
-          - filename: bitrise.yml
-          - filename: buddy.yml
           - filename: config.yml
             path: /.circleci/
-          - filename: circle.yml
-          - filename: .cirrus.yml
-          - filename: codecov.yml
-          - filename: codefresh.yml
-          - filename: codeship-steps.yml
-          - filename: .drone.yml
           - filename: "*.yml"
             path: /.github/workflows/
-          - filename: "*jfrog*.yml"
-          - filename: peak_flow.yml
-          - filename: .razorops.yaml
-          - filename: .scrutinizer.yml
           - filename: semaphore.yml
             path: /.semaphore/
-          - filename: sider.yml
-          - filename: .travis.yml
-          - filename: wercker.yml
     steps:
     - name: search
       id: search_yaml
