@@ -24,7 +24,7 @@ jobs:
       matrix:
         A: [""]
         B: [""]
-        C: ["!"]
+        C: ["test"]
         exclude:
           - A: ""
         include:
