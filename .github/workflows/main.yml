@@ -33,7 +33,7 @@ jobs:
           - A: "Good"
             B: "bye"
     steps:
-      - run: echo ${{ matrix.A }}-${{ matrix.B }} ${{ matrix.C }}
+      - run: echo "${{ matrix.A }}-${{ matrix.B }} ${{ matrix.C }}"
 
   array-pair-matrix:
     runs-on: ubuntu-latest
@@ -43,4 +43,4 @@ jobs:
           - ["Hello", "world"]
           - ["Good", "bye"]
     steps:
-      - run: echo ${{ matrix.pair[0] }}-${{ matrix.pair[1] }}
+      - run: echo "${{ matrix.pair[0] }}-${{ matrix.pair[1] }}"
