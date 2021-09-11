@@ -1,0 +1,41 @@
+name: 'GitHub Search'
+description: 'GitHub source code search'
+
+inputs:
+  github_token:
+    description: 'GitHub API Token'
+    required: true
+  filename:
+    description: 'filename'
+    required: true
+  path:
+    description: 'path'
+    default: "/"
+
+outputs:
+  filename:
+    description: "output filename"
+    value: ${{ steps.search.outputs.filename }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: search
+      id: search
+      shell: bash
+      run: |
+        QF=${{ inputs.filename }}
+        QP=${{ inputs.path }}
+        TOTAL_COUNT=$(curl -s -u :${{ inputs.github_token }} https://api.github.com/search/code?q=filename:${QF}+path:${QP} | jq ".total_count")
+        # TOTAL_COUNT=$(curl -s -u :${{ inputs.github_token }} https://api.github.com/search/code?q=filename:${QF}+extension:yml+path:${QP} | jq ".total_count")
+        echo ${TOTAL_COUNT}
+        QF_=$(echo $QF | sed 's/\*//g')
+        SEARCH=${QP#/}${QF_}
+        FILEPATH_=${SEARCH%%/*}
+        FILEPATH=$(basename ${FILEPATH_})
+        FILENAME_1=${FILEPATH%.yml}
+        FILENAME_2=${FILENAME_1%.yaml}
+        FILENAME=${FILENAME_2#.}
+        echo ${FILENAME}, ${TOTAL_COUNT} > ${FILENAME}.txt
+        echo "##[set-output name=filename;]$(echo ${FILENAME}.txt)"
+        # echo "::warning:: ${FILENAME}, ${TOTAL_COUNT}"
