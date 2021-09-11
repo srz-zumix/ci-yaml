@@ -43,6 +43,7 @@ jobs:
       id: search_yaml
       uses: ./.github/actions/composite/search
       with:
+        github_token: ${{ secrets.github_token }}
         filename: ${{ matrix.filename }}
         path: ${{ matrix.path }}
     - name: Upload
