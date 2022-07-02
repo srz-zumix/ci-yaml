@@ -28,7 +28,6 @@ jobs:
           # - semaphore.yml
           - sider.yml
           - .travis.yml
-          - wercker.yml
         path: ["/"]
         include:
           - filename: config.yml
